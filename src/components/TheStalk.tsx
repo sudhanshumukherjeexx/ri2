@@ -1,5 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './TheStalk.css'
+
+const AUTO_ADVANCE_MS = 2600
+
+function prefersReducedMotion() {
+  return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
 
 type FieldValue = string | number
 type Record3 = { age: FieldValue; sex: FieldValue; fare: FieldValue }
@@ -59,7 +65,24 @@ const STAGES: Stage[] = [
 
 export function TheStalk() {
   const [index, setIndex] = useState(0)
+  const [autoPlay, setAutoPlay] = useState(true)
   const stage = STAGES[index]
+
+  // Cycles the demo on its own so the mechanism is visible before anyone
+  // clicks anything; stops for good the moment a visitor takes the wheel,
+  // and never runs at all if the OS asked for reduced motion.
+  useEffect(() => {
+    if (!autoPlay || prefersReducedMotion()) return
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % STAGES.length)
+    }, AUTO_ADVANCE_MS)
+    return () => clearInterval(id)
+  }, [autoPlay])
+
+  function selectStage(i: number) {
+    setAutoPlay(false)
+    setIndex(i)
+  }
 
   return (
     <div className="stalk">
@@ -69,7 +92,7 @@ export function TheStalk() {
             key={s.id}
             type="button"
             className={i === index ? 'stalk-node stalk-node-active' : 'stalk-node'}
-            onClick={() => setIndex(i)}
+            onClick={() => selectStage(i)}
             aria-current={i === index}
           >
             <span className="stalk-node-dot" aria-hidden="true" />

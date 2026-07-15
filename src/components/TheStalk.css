@@ -67,18 +67,30 @@
   font-weight: 600;
 }
 
+/* A downward-pointing arrow marker (not another circle -- the node dots
+   below already are circles) that slides to sit above whichever stage is
+   active, built from two stacked CSS triangles for an ink-bordered look. */
 .stalk-token {
   position: absolute;
-  top: 20px;
-  width: 24px;
-  height: 24px;
-  margin-left: -12px;
-  border-radius: 50%;
-  background: var(--hot);
-  border: 2px solid var(--ink);
-  box-shadow: 0 0 0 4px var(--hot-bg);
+  top: 2px;
+  width: 22px;
+  height: 16px;
+  margin-left: -11px;
+  background: var(--ink);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
   transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
+}
+
+.stalk-token::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2.5px;
+  right: 2.5px;
+  bottom: 3px;
+  background: var(--hot);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
 
 .stalk-record {
