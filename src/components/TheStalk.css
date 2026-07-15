@@ -9,10 +9,21 @@
 
 .stalk-track {
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  /* grid-template-columns is set inline to repeat(STAGES.length, 1fr) --
+     equal-width columns are what makes the arrow's left:(i+0.5)/n*100%
+     formula land exactly on each dot's center, regardless of how long
+     each stage's label text is (space-between with variable-width
+     children does NOT space the dots at even percentages).
+     No horizontal padding here on purpose: the absolutely-positioned
+     .stalk-token's left:% resolves against this element's PADDING box,
+     while the grid's own column math operates on its CONTENT box -- any
+     horizontal padding here would make those two boxes different widths
+     and reintroduce a (small but compounding) misalignment. The line's
+     4px inset below is applied directly to it instead, independent of
+     this box. */
   align-items: center;
-  padding: 20px 4px 8px;
+  padding: 20px 0 8px;
 }
 
 .stalk-track::before {
@@ -30,6 +41,7 @@
 .stalk-node {
   position: relative;
   z-index: 1;
+  justify-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;

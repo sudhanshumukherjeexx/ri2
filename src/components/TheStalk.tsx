@@ -86,7 +86,7 @@ export function TheStalk() {
 
   return (
     <div className="stalk">
-      <div className="stalk-track">
+      <div className="stalk-track" style={{ gridTemplateColumns: `repeat(${STAGES.length}, 1fr)` }}>
         {STAGES.map((s, i) => (
           <button
             key={s.id}
@@ -101,7 +101,7 @@ export function TheStalk() {
         ))}
         <div
           className="stalk-token"
-          style={{ left: `${(index / (STAGES.length - 1)) * 100}%` }}
+          style={{ left: `${((index + 0.5) / STAGES.length) * 100}%` }}
           aria-hidden="true"
         />
       </div>
