@@ -1,0 +1,102 @@
+:root {
+  /* R.I.D.E design tokens -- palette themed around pandas (the library
+     actually computing everything here) and what pandas eat: every page
+     of this app is one stage a data value passes through, stalk segment
+     by stalk segment. */
+  --paper: #f4f6f0; /* pale bamboo-leaf white -- cool, not cream */
+  --ink: #1c2620; /* forest charcoal, not pure black */
+  --ink-soft: #5b6b60; /* muted sage for secondary text */
+  --hot: #e8a33d; /* amber of a cut bamboo culm -- the one signature accent */
+  --cool: #2c6e8e; /* slate teal, secondary accent */
+  --success: #2fa84f; /* leaf green */
+  --code-surface: #14201a; /* near-black terminal panel */
+  --border: var(--ink);
+  --hot-bg: rgba(232, 163, 61, 0.14);
+  --cool-bg: rgba(44, 110, 142, 0.12);
+  --success-bg: rgba(47, 168, 79, 0.14);
+  --danger: #c1442e;
+  --danger-bg: rgba(193, 68, 46, 0.12);
+  --shadow-hard: 4px 4px 0 var(--ink);
+  --shadow-hard-sm: 2px 2px 0 var(--ink);
+
+  --display: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
+  --sans: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+
+  font: 16px/1.5 var(--sans);
+  color-scheme: light;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 40px;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--cool);
+}
+
+code {
+  font-family: var(--mono);
+}
+
+button,
+select,
+input {
+  font-family: var(--sans);
+}

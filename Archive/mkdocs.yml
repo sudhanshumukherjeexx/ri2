@@ -1,0 +1,25 @@
+site_name: RIDE User Documentation
+site_description: No-code Data Science Tool Documentation
+site_author: Sudhanshu Mukherjee
+theme:
+  name: material
+  language: en
+  palette:
+    primary: deep purple
+    accent: indigo
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+nav:
+  - Home: index.md
+  - 01 – Data Overview: 01_data_overview.md
+  - 02 – Data Cleanup & Conversion: 02_data_cleanup_and_conversion.md
+  - 03 – Exploratory Data Analysis: 03_exploratory_data_analysis.md
+  - 04 – Impute Missing Values: 04_impute_missing_values.md
+  - 05 – Feature Encoding: 05_feature_encoding.md
+  - 06 – Feature Scaling & Transformation: 06_feature_scaling_and_transformation.md
+  - 07 – Distribution Diagnostics: 07_distribution_diagnostics.md
+  - 08 – Statistical Tests: 08_statistical_tests.md
+  - 09 – AutoML: 09_automl.md
+  - 10 – Chat with Data: 10_chat_with_data.md

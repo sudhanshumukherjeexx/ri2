@@ -1,0 +1,37 @@
+# Ignore all .git files and directories
+.git
+.gitignore
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore any build or distribution directories
+build/
+dist/
+venv/
+
+# Ignore IDE and editor configuration files
+.vscode/
+.idea/
+
+# Ignore Docker and related files
+Dockerfile
+.dockerignore
+
+# Ignore system files
+Thumbs.db
+.DS_Store
+
+# Ignore test files and directories
+test/
+tests/
+
+# Ignore any other temporary or generated files
+*.bak
+*.~*
+
+# Ignore files related to deployment or server config
+*.pem
+*.key

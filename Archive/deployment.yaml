@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamlit-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: streamlit
+  template:
+    metadata:
+      labels:
+        app: streamlit
+    spec:
+      containers:
+      - name: streamlit
+        # Change this line to use the GCR image
+        image: gcr.io/ride-454602/my-app:latest  # Use your GCR image
+        ports:
+        - containerPort: 8501
+        volumeMounts:
+        - mountPath: "/app/data"
+          name: streamlit-storage
+      volumes:
+      - name: streamlit-storage
+        persistentVolumeClaim:
+          claimName: streamlit-pvc

@@ -1,0 +1,134 @@
+.stalk {
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 20px;
+  box-shadow: var(--shadow-hard);
+  padding: 28px 24px 24px;
+  margin: 24px 0 32px;
+}
+
+.stalk-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 4px 8px;
+}
+
+.stalk-track::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 32px;
+  height: 3px;
+  background: var(--ink);
+  opacity: 0.15;
+  border-radius: 3px;
+}
+
+.stalk-node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.stalk-node:hover {
+  transform: none;
+  box-shadow: none;
+  color: var(--ink);
+}
+
+.stalk-node-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--ink);
+}
+
+.stalk-node-active .stalk-node-dot {
+  background: var(--hot);
+}
+
+.stalk-node-active {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.stalk-token {
+  position: absolute;
+  top: 20px;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-radius: 50%;
+  background: var(--hot);
+  border: 2px solid var(--ink);
+  box-shadow: 0 0 0 4px var(--hot-bg);
+  transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.stalk-record {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.stalk-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  background: var(--paper);
+  min-width: 90px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.stalk-field-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stalk-field-value {
+  font-family: var(--mono);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.stalk-field-changed {
+  background: var(--hot-bg);
+  border-color: var(--hot);
+  transform: translateY(-2px);
+}
+
+.stalk-note {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  min-height: 21px;
+}
+
+@media (max-width: 640px) {
+  .stalk-node-label {
+    display: none;
+  }
+}

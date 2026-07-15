@@ -1,0 +1,114 @@
+.code-block {
+  background: var(--code-surface);
+  border: 1.5px solid var(--ink);
+  border-radius: 16px;
+  box-shadow: var(--shadow-hard);
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.code-block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(244, 246, 240, 0.12);
+}
+
+.code-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.code-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.code-dot-red {
+  background: #e0605a;
+}
+
+.code-dot-yellow {
+  background: var(--hot);
+}
+
+.code-dot-green {
+  background: var(--success);
+}
+
+.code-filename {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(244, 246, 240, 0.65);
+  margin-right: auto;
+}
+
+.code-copy-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(244, 246, 240, 0.3);
+  background: transparent;
+  box-shadow: none;
+  color: rgba(244, 246, 240, 0.85);
+}
+
+.code-copy-btn:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--hot);
+  color: var(--hot);
+}
+
+.code-block-pre {
+  margin: 0;
+  padding: 14px 18px;
+  overflow-x: auto;
+}
+
+.code-block-pre code {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: #f4f6f0;
+  background: none;
+  text-shadow: none;
+}
+
+/* Prism token colors, mapped to the app's palette */
+.code-block .token.keyword,
+.code-block .token.control {
+  color: var(--hot);
+}
+
+.code-block .token.string {
+  color: #7fd894;
+}
+
+.code-block .token.comment {
+  color: rgba(244, 246, 240, 0.45);
+  font-style: italic;
+}
+
+.code-block .token.number,
+.code-block .token.boolean {
+  color: #6fb8d6;
+}
+
+.code-block .token.function {
+  color: #f4f6f0;
+  font-weight: 600;
+}
+
+.code-block .token.builtin,
+.code-block .token.class-name {
+  color: #b9a6ff;
+}
+
+.code-block .token.operator,
+.code-block .token.punctuation {
+  color: rgba(244, 246, 240, 0.6);
+}

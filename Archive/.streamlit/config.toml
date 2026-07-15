@@ -1,0 +1,10 @@
+[theme]
+primaryColor="#FF4B4B"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6"
+textColor="#31333F"
+font="Source Sans Pro"
+
+[server]
+maxUploadSize = 6000
+maxMessageSize = 500
