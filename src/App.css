@@ -171,6 +171,26 @@
   max-width: 1060px;
 }
 
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-header h1 {
+  margin: 0;
+}
+
+.page-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  border: 1.5px solid var(--ink);
+  box-shadow: var(--shadow-hard-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 @media (max-width: 980px) {
   .drawer-toggle {
     display: inline-flex;
@@ -463,6 +483,27 @@ label {
 
 .ai-insight {
   margin: 12px 0;
+}
+
+.ai-insight-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--cool);
+  border-color: var(--cool);
+}
+
+.info-btn:hover {
+  background: var(--cool-bg);
 }
 
 .ai-insight-change-key {

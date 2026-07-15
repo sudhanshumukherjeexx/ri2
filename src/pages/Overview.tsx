@@ -41,7 +41,10 @@ export default function Overview() {
 
   return (
     <div className="page">
-      <h1>Data Overview</h1>
+      <div className="page-header">
+        <img src={`${import.meta.env.BASE_URL}brand/logo.png`} alt="RI2 logo" className="page-logo" />
+        <h1>Data Overview</h1>
+      </div>
 
       <TheStalk />
 

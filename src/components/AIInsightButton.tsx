@@ -64,6 +64,7 @@ export function AIInsightButton({ summary, prompt, label = 'Get AI Insight' }: P
   const [insight, setInsight] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+  const [showPendingInfo, setShowPendingInfo] = useState(false)
 
   async function handleClick() {
     if (!apiKey) {
@@ -87,6 +88,35 @@ export function AIInsightButton({ summary, prompt, label = 'Get AI Insight' }: P
     setApiKey(keyInput.trim())
     setKeyInput('')
     setShowKeyForm(false)
+  }
+
+  // No proxy deployed yet -- tell visitors up front instead of letting them
+  // hit an error after entering their key. Disappears on its own once
+  // VITE_AI_PROXY_URL is set at build time, no code change needed.
+  if (!PROXY_URL) {
+    return (
+      <div className="ai-insight">
+        <div className="ai-insight-row">
+          <button type="button" disabled>
+            {label}
+          </button>
+          <button
+            type="button"
+            className="info-btn"
+            aria-label="Why is this disabled?"
+            title="AI Insight is still being set up and will be available soon."
+            onClick={() => setShowPendingInfo((v) => !v)}
+          >
+            ⓘ
+          </button>
+        </div>
+        {showPendingInfo && (
+          <p className="status">
+            AI Insight is still being set up and will be available soon &mdash; check back later!
+          </p>
+        )}
+      </div>
+    )
   }
 
   return (
